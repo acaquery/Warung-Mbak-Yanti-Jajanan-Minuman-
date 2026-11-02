@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Warung Mbak Yanti | Jajanan & Minuman Pasar Cepu</title>
+<meta name="description" content="Aneka jajanan dan minuman segar mulai Rp5.000. Pesan lewat WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="#top"><span class="brand-ico">🍡</span> Warung Mbak Yanti</a>
+    <a class="topbar-link" href="#menu">Lihat menu</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-in">
+      <div class="hero-text">
+        <p class="hero-tag">Pasar Cepu dan sekitarnya</p>
+        <h1>Ngemil enak,<br>kantong aman.</h1>
+        <p class="hero-sub">Cilok, seblak, basreng sampai es degan. Semua mulai Rp5.000 dan dibuat fresh setiap hari. Pesan dulu lewat WhatsApp, tinggal ambil.</p>
+        <a class="btn btn-red" href="#menu">Pesan sekarang</a>
+      </div>
+      <div class="hero-art">
+        <img class="hero-photo" src="foto-warung.png" alt="Mbak Yanti melayani pembeli di warung jajanan Pasar Cepu" width="807" height="591">
+        <span class="chip chip-a" aria-hidden="true">🔥 Cilok paling laris</span>
+        <span class="chip chip-b" aria-hidden="true">🥥 Es degan segar</span>
+        <span class="chip chip-c" aria-hidden="true">Rp5.000</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="perks wrap">
+    <div class="perk"><b>16 menu</b><span>jajanan & minuman</span></div>
+    <div class="perk"><b>Rp5.000</b><span>semua harga sama</span></div>
+    <div class="perk"><b>Fresh</b><span>dibuat setiap hari</span></div>
+  </section>
+
+  <section class="menu wrap" id="menu">
+    <div class="menu-head">
+      <h2>Menu kami</h2>
+      <p>Ketuk tambah, atur jumlahnya, lalu kirim pesanan ke WhatsApp.</p>
+    </div>
+    <div class="filters" role="tablist" aria-label="Kategori menu">
+      <button class="filter active" data-filter="all" role="tab">Semua</button>
+      <button class="filter" data-filter="jajanan" role="tab">🍢 Jajanan</button>
+      <button class="filter" data-filter="minuman" role="tab">🥤 Minuman</button>
+    </div>
+    <div class="products" id="products"></div>
+  </section>
+
+  <section class="how wrap">
+    <h2>Cara pesan</h2>
+    <ol class="steps">
+      <li><b>Pilih menu</b><span>Tambahkan yang kamu mau ke keranjang.</span></li>
+      <li><b>Isi nama</b><span>Tambah catatan atau alamat bila perlu.</span></li>
+      <li><b>Kirim ke WhatsApp</b><span>Mbak Yanti konfirmasi ketersediaan.</span></li>
+    </ol>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <strong>Warung Jajanan & Minuman Mbak Yanti</strong>
+    <p>Area Pasar Cepu dan sekitarnya</p>
+    <p>Terima kasih sudah mendukung UMKM lokal 💚</p>
+  </div>
+</footer>
+
+<!-- Bar keranjang -->
+<button class="cartbar" id="cartbar" onclick="openCart()" aria-label="Buka keranjang">
+  <span class="cartbar-l">🛒 <b id="count">0</b> item</span>
+  <span class="cartbar-r" id="barTotal">Rp0</span>
+</button>
+
+<!-- Keranjang -->
+<div class="modal" id="cartModal" onclick="if(event.target===this)closeCart()">
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div class="sheet-top">
+      <h2 id="cartTitle">Keranjang pesanan</h2>
+      <button class="close" onclick="closeCart()" aria-label="Tutup">×</button>
+    </div>
+    <div id="cartItems"></div>
+    <div class="total"><span>Total</span><span id="total">Rp0</span></div>
+    <label for="customer">Nama pemesan</label>
+    <input id="customer" placeholder="Nama kamu" autocomplete="name">
+    <label for="note">Catatan atau alamat (opsional)</label>
+    <textarea id="note" rows="2" placeholder="Contoh: ambil jam 4 sore / alamat pengantaran"></textarea>
+    <button class="btn btn-wa" onclick="checkout()">Kirim pesanan lewat WhatsApp</button>
+    <p class="fine">Pesanan baru terkirim setelah kamu menekan tombol kirim di WhatsApp.</p>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
